@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+    
+    
+        <h1>Adress Book</h1>
+    
+        <button class="plus" @click="show">Add a new Contact</button>
+    
+    <div id="lightbox" v-show="form_show">
+            
+        
+        <div class="form container" >
+            Firstname:<input type="text" v-model="in_firstname">
+            Lastname:<input type="text" v-model="in_lastname">
+            E-mail Adresse<input type="text" v-model="in_email">
+            Telefon number<input type="text" v-model="in_tel">
+            Adress:<input type="text" v-model="in_adress">
+            <button @click="add">Person Add</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <div class="ersteline">
+            <span>Firstname</span>
+            <span>Lastname</span>
+            <span>E-mail</span>
+            <span>Telephone</span>
+            <span>Adress</span>
+        </div>
+
+
+        <div class="line" v-for="(person, i) in persons">
+            <img :src="person.bild">
+           <div class="mitig">
+            <span>{{person.firstname}}</span>
+            <span>{{person.lastname}}</span>
+            <span>{{person.email}}</span>
+            <span>{{person.tel}}</span>
+            <span>{{person.adress}}</span>
+        </div>
+            <button @click="erase(i)">Del</button>
+
+
+
+
+        </div>
+    </div>
+        
+
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
